@@ -9,4 +9,4 @@ var Family =Family.fontcolor("green");//Defining a string variable and assigning
 document.write(Family);
 
 document.write(3 + 3);//Creating an expression//
-document.write("Lisa told Bart, \"Knock it off, Bart! Or I'll tell dad!\"<br>\"Eat my shorts!\" Bart responded.");
+document.write("Lisa told Bart, \"Knock it off, Bart! Or I'll tell dad!\"<br>\"Eat my shorts!\" Bart responded.");//Creating a string//
