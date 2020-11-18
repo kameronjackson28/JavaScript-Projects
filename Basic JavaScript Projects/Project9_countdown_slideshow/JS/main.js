@@ -6,7 +6,7 @@ function countdown() {
         timer.innerHTML = seconds;
         setTimeout(tick, 1000);
     if(seconds == -1) {
-        alert("Time's up!")
+        alert("Time's up!");
     }
         }
     tick();
