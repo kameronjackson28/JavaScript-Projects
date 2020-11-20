@@ -47,5 +47,6 @@ let house = {
         return "The house is a" + this.year + this.color + this.model;
     }
 };
-document.getElementById("House_Object").innerHTML = house_description();
+document.getElementById("House_Object").innerHTML= house.description();
+
 //uses "let" to give a description of the properties of the object(house)//
