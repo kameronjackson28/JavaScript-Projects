@@ -36,7 +36,7 @@ function placeXOrO(squareNumber) {
 
 
         //This function plays placement sound.
-        Audio.play("./media/place.mp3");
+        Audio("./media/place.mp3");
         //This condition checks to see if it is the computers turn.
         if(activePlayer === 'O') {
             //This function disables clicking for computer choice.
