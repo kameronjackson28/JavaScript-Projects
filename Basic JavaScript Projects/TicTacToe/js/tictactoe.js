@@ -10,7 +10,7 @@ function placeXOrO(squareNumber) {
     //see if it contains the square number clicked on.
     if (!selectedSquares.some(element => element.includes(squareNumber))) {
         //This variable retrieves the html element id that was clicked.
-        let select = document.getElementById(squareNumber);
+        let selected = document.getElementById(squareNumber);
         //This condition checks who's turn it is.
         if (activePlayer === 'X') {
             //If activePlayer is equal to 'X', the x.png is placed in HTML.
@@ -18,7 +18,7 @@ function placeXOrO(squareNumber) {
             //Active player may only be 'X' or 'O', the o.png is placed in HTML.
         } else {
             //If activePlayer is equal to 'O', the o.png is placed in HTML.
-            select.style.backgroundImage ='url("https://techacademystorage.blob.core.windows.net/javascript/o.png")';
+            selected.style.backgroundImage ='url("https://techacademystorage.blob.core.windows.net/javascript/o.png")';
         }
         //squareNumber and activePlayer are concatenate together and added to array.
         selectedSquares.push(squareNumber + activePlayer);
@@ -36,7 +36,7 @@ function placeXOrO(squareNumber) {
 
 
         //This function plays placement sound.
-        Audio("./media/place.mp3");
+        Audio.play("./media/place.mp3");
         //This condition checks to see if it is the computers turn.
         if(activePlayer === 'O') {
             //This function disables clicking for computer choice.
@@ -110,7 +110,7 @@ function checkWinConditions() {
     //and 9 squares are selected, the code executes.
     else if(selectedSquares.length >= 9) {
         //This function plays the tie game sound.
-        audio("./media/tie.mp3");
+        Audio.play("./media/tie.mp3");
         //This function sets a .3 second timer before the resetGame is called.
         setTimeout(function () {resetGame();}, 1000);
     }
@@ -128,4 +128,20 @@ function arrayIncludes(squareA, squareB, squareC) {
     //returned and our else if condition executes the drawWinLine function
     if (a === true && b === true && c === true) {return true;}
     }
+}
+
+//This function makes our body element temporarily unclickable.
+function disableClick() {
+    body.style.pointerEvents= 'none';
+    //This makes our body clickable again after 1 second.
+    setTimeout(function() {body.style.pointerEvents = 'auto';}, 1000)
+}
+
+//This function takes a string parameter of the path you set earlier for 
+//placement sound ('./media/place.mp3')
+function audio(audioURL) {
+    //We create a new audio object and we pass the path as a parameter.
+    let audio = new Audio(audioURL);
+    //Play method plays our audio sound.
+    audio.play();
 }
