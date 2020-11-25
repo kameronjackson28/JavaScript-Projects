@@ -1,7 +1,7 @@
 //This variable keeps track of who's turn it is.//
 let activePlayer='X';
 //This array stores an array of moves. We use this to determine win conditions.
-let selectedSquares =[];
+let selectedSquares = [];
 
 //This function is for placing an x or o in a square.
 function placeXOrO(squareNumber) {
@@ -14,11 +14,11 @@ function placeXOrO(squareNumber) {
         //This condition checks who's turn it is.
         if (activePlayer === 'X') {
             //If activePlayer is equal to 'X', the x.png is placed in HTML.
-            selected.style.backgroundImage='url("https://techacademystorage.blob.core.windows.net/javascript/x.png")';
+            selected.style.backgroundImage='url("./images/x.png")';
             //Active player may only be 'X' or 'O', the o.png is placed in HTML.
         } else {
             //If activePlayer is equal to 'O', the o.png is placed in HTML.
-            selected.style.backgroundImage ='url("https://techacademystorage.blob.core.windows.net/javascript/o.png")';
+            selected.style.backgroundImage ='url("./images/o.jpg")';
         }
         //squareNumber and activePlayer are concatenate together and added to array.
         selectedSquares.push(squareNumber + activePlayer);
@@ -77,11 +77,11 @@ function checkWinConditions() {
     // X 0, 1, 2 condition.
     if      (arrayIncludes('0X', '1X', '2X')) { drawWinLine(50, 100, 558, 100); }
     // X 3, 4, 5 condition.
-    else if (arrayIncludes('3X', '4X', '5x')) { drawWinLine(50, 304, 558, 304); }
+    else if (arrayIncludes('3X', '4X', '5X')) { drawWinLine(50, 304, 558, 304); }
     // X 6, 7, 8 condition.
     else if (arrayIncludes('6X', '7X', '8X')) { drawWinLine(50, 508, 558, 508); }
     //X 0, 3, 6 condition.
-    else if (arrayIncludes('0x', '3X', '6X')) { drawWinLine(100, 50, 100, 558); }
+    else if (arrayIncludes('0X', '3X', '6X')) { drawWinLine(100, 50, 100, 558); }
     //X 1, 4, 7 condition. 
     else if (arrayIncludes('1X', '4X', '7X')) { drawWinLine(304, 50, 304, 558); }
     //X 2, 5, 8 condition.
@@ -117,17 +117,17 @@ function checkWinConditions() {
 
 
 
-//This function checks if an array includes 3 strings
-//It is used to check for each win condition.
-function arrayIncludes(squareA, squareB, squareC) {
-    //the next 3 variables will be used to check for 3 in a row.
-    const a=selectedSquares.includes(squareA);
-    const b=selectedSquares.includes(squareB);
-    const c=selectedSquares.includes(squareC);
-    //If the 3 variables we pass are all included in our array true is
-    //returned and our else if condition executes the drawWinLine function
-    if (a === true && b === true && c === true) {return true;}
-    }
+    //This function checks if an array includes 3 strings
+    //It is used to check for each win condition.
+    function arrayIncludes(squareA, squareB, squareC) {
+        //the next 3 variables will be used to check for 3 in a row.
+        const a=selectedSquares.includes(squareA);
+        const b=selectedSquares.includes(squareB);
+        const c=selectedSquares.includes(squareC);
+        //If the 3 variables we pass are all included in our array true is
+        //returned and our else if condition executes the drawWinLine function
+        if (a === true && b === true && c === true) {return true;}
+        }
 }
 
 //This function makes our body element temporarily unclickable.
@@ -194,9 +194,9 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
         }
         //This condition is similar to the one above.
         //It was necessary for the 6, 4, 2 win condition.
-        if (x1 <= x2 && y1 >= y2)
+        if(x1 <= x2 && y1 >= y2)
             if(x < x2) { x += 10; }
-            if (y > y2) { y -= 10; }
+            if(y > y2) { y -= 10; }
             if(x >= x2 && y <=y2) { cancelAnimationFrame(animationLoop); }
 
 
